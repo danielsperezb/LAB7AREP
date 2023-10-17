@@ -32,7 +32,7 @@ public class SecureSpark2 {
         if (System.getenv("URL") != null) {
             return System.getenv("URL");
         }
-        return "https://localhost:5000/hello";
+        return "https://ec2-18-208-211-74.compute-1.amazonaws.com:5000/hello";
     }
 
 }

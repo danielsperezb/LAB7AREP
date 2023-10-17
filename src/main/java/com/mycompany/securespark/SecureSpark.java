@@ -34,7 +34,7 @@ public class SecureSpark {
         if (System.getenv("URL") != null) {
             return System.getenv("URL");
         }
-        return "https://localhost:5001/goodbye";
+        return "https://ec2-54-87-148-26.compute-1.amazonaws.com:5001/goodbye";
     }
 
 }
