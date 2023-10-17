@@ -18,7 +18,7 @@ public class SecureSpark {
 
         secure("keystore/ecikeystore.p12", "password", null, null);
 
-        get("/hello", (req, res) -> "Hello Wolrd");
+        get("/hello", (req, res) -> "Hello World from Server 1");
         get("/goodbye", (req, res) -> URLReader.urlReader(getUrl(),"keystore/ecikeystore2.p12", "password"));
         
     }
