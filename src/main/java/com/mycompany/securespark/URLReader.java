@@ -17,10 +17,9 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 
 
-
 /**
  *
- * @author daniel.perez-b
+ * @author daniel.perez-b y Profesor: Daniel Benavides quien proporciono un codigo base
  */
 
 
