@@ -19,7 +19,7 @@ public class SecureSpark {
         secure("keystore/ecikeystore.p12", "password", null, null);
 
         get("/hello", (req, res) -> "Hello World from Server 1");
-        get("/goodbye", (req, res) -> URLReader.urlReader(getUrl(),"keystore/ecikeystore2.p12", "password"));
+        get("/goodbye", (req, res) -> URLReader.urlReader(getUrl(),"keystore/myTrustStore2.p12", "password"));
         
     }
 
@@ -34,7 +34,8 @@ public class SecureSpark {
         if (System.getenv("URL") != null) {
             return System.getenv("URL");
         }
-        return "https://ec2-54-87-148-26.compute-1.amazonaws.com:5001/goodbye";
+        return "https://ec2-54-82-184-135.compute-1.amazonaws.com:5001/goodbye";
+    
     }
 
 }
