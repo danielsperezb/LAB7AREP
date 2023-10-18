@@ -66,7 +66,7 @@ La clase `URLReader` proporciona métodos para realizar solicitudes HTTPS a una 
 
 **TrustManagerFactory:**
 
-- La clase utiliza `TrustManagerFactory` para inicializar los trust managers a partir del truststore cargado.
+- Aparece en el URLReader para inicializar los trust managers a partir del truststore cargado.
 - Los trust managers son responsables de decidir qué certificados de servidor son aceptables.
 
 **SSLContext:**
