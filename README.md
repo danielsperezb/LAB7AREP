@@ -1,70 +1,89 @@
-# LAB7 AREP APLICACIÓN DISTRIBUIDA SEGURA EN TODOS SUS FRENTES
+# LAB7 AREP: APLICACIÓN DISTRIBUIDA SEGURA EN TODOS SUS FRENTES
 
-## INTRODUCCIÓN:
+## INTRODUCCIÓN
 
-Desarrollar una aplicación web segura es esencial para proteger la información sensible y garantizar la privacidad de los usuarios. Este proyecto se centra en la implementación de una arquitectura robusta que cumpla con los requisitos de autenticación, autorización e integridad tanto para el acceso desde el navegador como para la comunicación entre computadoras y servicios remotos. Utilizando tecnologías como Spark SSL, Spring Boot con certificados autofirmados y servicios de AWS, se busca crear un prototipo sólido y escalable.
+El desarrollo de una aplicación web segura es crucial para salvaguardar información sensible y garantizar la privacidad de los usuarios. Este proyecto se enfoca en implementar una arquitectura robusta que cumple con los requisitos de autenticación, autorización e integridad, tanto para el acceso desde el navegador como para la comunicación entre computadoras y servicios remotos. Utilizando tecnologías como Spark SSL, Spring Boot con certificados autofirmados y servicios de AWS, buscamos crear un prototipo sólido y escalable.
 
-## RESUMEN:
+## RESUMEN
 
-La aplicación web desarrollada garantiza la seguridad desde múltiples aspectos. Para el acceso desde el navegador, se implementa una capa de seguridad basada en Spark SSL, asegurando la autenticación y autorización de usuarios, así como la integridad de los datos transmitidos. 
+La aplicación web desarrollada garantiza la seguridad desde múltiples perspectivas. Para el acceso desde el navegador, se implementa una capa de seguridad basada en Spark SSL, asegurando la autenticación, autorización de usuarios y la integridad de los datos transmitidos.
 
-Además, se emplean certificados autofirmados (Carpeta keystore) para asegurar la comunicación entre al menos dos computadoras y los servicios remotos. Esto asegura que solo usuarios autorizados pueden invocar los servicios y mantiene la integridad de la información.
+Además, se emplean certificados autofirmados (carpeta keystore) para asegurar la comunicación entre al menos dos computadoras y los servicios remotos. Esto garantiza que solo usuarios autorizados puedan invocar los servicios y mantiene la integridad de la información.
 
-## OBJETIVOS:
+## OBJETIVOS
 
-Debe permitir un acceso seguro desde el browser a la aplicación. Es decir debe garantizar autenticación, autorización e integridad de usuarios.: Cumplido debes acceder y en los videos se evidencia el uso de SSL (https).
+1. **Documentación del código:** Cumplida, evidenciada en el último commit llamado "Documentación".
 
-Debe tener al menos dos computadores comunicacndose entre ellos y el acceso de servicios remotos debe garantizar: autenticación, autorización e integridad entre los servicios. Nadie puede invocar los servicios si no está autorizado. Cumplido, de forma local se probo en diferentes puertos y en AWS tambien pero se crearon dos instancias diferetes simulando los dos computadores.
+2. **Acceso seguro desde el navegador a la aplicación:** Cumplido, se accede mediante HTTPS, como se muestra en los videos.
 
+3. **Comunicación entre al menos dos computadoras y acceso a servicios remotos:** Cumplido, probado localmente en diferentes puertos y en AWS con dos instancias diferentes simulando dos computadoras.
 
-## Escalamiento de la arquitectura de seguridad para incorporar nuevos servicios.
+## Escalamiento de la Arquitectura de Seguridad para Incorporar Nuevos Servicios
 
-Se debe mantener una jerarquía clara de certificados para garantizar la seguridad en la comunicación entre servicios y  usar buenas practicas de diseño, se podria manejar alguna informacion en un base de datos para no tener que ponerla sobre codigo y su almacenamiento y control sea mas sencillo, usando la persistencia.
+Se mantiene una jerarquía clara de certificados para garantizar la seguridad en la comunicación entre servicios y se aplican buenas prácticas de diseño. Se considera el manejo de información en una base de datos para simplificar su almacenamiento y control mediante la persistencia.
 
 ## PRUEBAS DE FUNCIONAMIENTO
 
-### VIDEO FUNCIONAMINETO DE MANERA LOCAL:
+### VIDEO FUNCIONAMIENTO DE MANERA LOCAL:
 
-https://www.youtube.com/watch?v=4hfWkyvDKWs
+[Ver Video](https://www.youtube.com/watch?v=4hfWkyvDKWs)
 
-#### Intrucciones: 
+#### Instrucciones:
 
-1 .Se clona el prpyecto en tu computador, puedes usar la linea de comandos con ayuda de git.
-
-git clone path_github
-
-2. Luego puedes correr las dos clases SecureSpark y SecureSpark2 o otra opcion correrlo por linea de comandos.
+1. Clonar el proyecto en tu computadora usando la línea de comandos con git: `git clone path_github`.  Debes ir al commit donde realice esto "Funcionamiento de manera Local" Link: https://github.com/danielsperezb/LAB7AREP/commit/fb0480cdfa6277ab70ea0c20be49945f790a003f
+2. 
+3. Ejecutar las clases `SecureSpark` y `SecureSpark2`, o utilizar la línea de comandos.
 
 ### VIDEO FUNCIONAMIENTO EN AWS:
 
-https://www.youtube.com/watch?v=VTNaIyFQDl0
+[Ver Video](https://www.youtube.com/watch?v=VTNaIyFQDl0)
 
-#### Intrucciones: 
+#### Instrucciones:
 
-1 .Se clona el prpyecto en tu computador, puedes usar la linea de comandos con ayuda de git.
+1. Clonar el proyecto en tu computadora usando la línea de comandos con git: `git clone path_github`.
+2. Abrir 2 líneas de comandos y ejecutar una instancia de AWS en cada una.
+3. Entrar a la carpeta target o utilizar el comando correspondiente para acceder desde afuera de target.
+4. En una instancia ejecutar el comando a), y en la otra el comando b):
 
-git clone path_github
-
-2 .Se abren 2 linea de comandos y en cada una se ejecuto una instancia de aws.
-
-3. Entras a la carpeta target o no hay necesidad con el comando correspondiente para hacerlo por fuera de target.
-
-4. En uno ejecuta el comando a) y en el otro el comando b)
-
-   comando a):java -cp "classes:dependency/*" com.mycompany.securespark.SecureSpark
-   comando b):java -cp "classes:dependency/*" com.mycompany.securespark.SecureSpark2
+   - Comando a): `java -cp "classes:dependency/*" com.mycompany.securespark.SecureSpark`
+   - Comando b): `java -cp "classes:dependency/*" com.mycompany.securespark.SecureSpark2`
 
 ### REQUERIMIENTOS
 
-1. Instalar java 17 en las instancias.
-2.  Podrias instalar maven y git tambien para poder hacer el clone y luego mvn clean install para obtener el package y luego correrlo o otra opcion tambien podria ser hacer el target en tu maquina local y transportarlo de la siguiente manera:
+1. Instalar Java 17 en las instancias.
+2. Opcional: Instalar Maven y Git para clonar y ejecutar `mvn clean install` para obtener el paquete, o transferirlo desde tu máquina local.
 
-scp -i C:/Users/dalum/OneDrive/Escritorio/lab7/awsseguridad.pem C:/Users/dalum/OneDrive/Escritorio/LAB7AREP/target.zip ec2-user@ec2-54-88-80-32.compute-1.amazonaws.com:~
+3. Cambiar URLs, a donde van los servidores ya que si el creador del proyecto o tú crean otro, este cambiará. Nota: Recuerda reemplazar los paths.
 
-scp -i C:/Users/dalum/OneDrive/Escritorio/lab7/awsseguridaddos.pem C:/Users/dalum/OneDrive/Escritorio/LAB7AREP/target.zip  ec2-user@ec2-54-82-184-135.compute-1.amazonaws.com:~
+## DESCRIPCIÓN DE LA ARQUITECTURA DE SEGURIDAD
 
-Nota: Recuerda reemplazar los paths.
-   
+La clase `URLReader` proporciona métodos para realizar solicitudes HTTPS a una URL con configuración de seguridad. Aquí hay una breve descripción de la arquitectura de seguridad:
+
+**Configuración del Keystore:**
+
+- La clase utiliza un archivo keystore (`eciKeyStoreFile`) y una contraseña (`password`) para cargar un truststore.
+- El truststore se utiliza para almacenar certificados de confianza, permitiendo establecer una conexión segura con el servidor.
+
+**TrustManagerFactory:**
+
+- La clase utiliza `TrustManagerFactory` para inicializar los trust managers a partir del truststore cargado.
+- Los trust managers son responsables de decidir qué certificados de servidor son aceptables.
+
+**SSLContext:**
+
+- Se crea una instancia de `SSLContext` y se inicializa con los trust managers obtenidos de `TrustManagerFactory`.
+- Este contexto SSL se establece como el contexto SSL predeterminado para todas las conexiones.
+
+**Lectura de la URL:**
+
+- La clase utiliza un objeto `URLConnection` para abrir una conexión a la URL proporcionada.
+- Se leen los campos del encabezado de la respuesta y se muestran.
+- Se lee el cuerpo del mensaje de la respuesta.
+
+**Manejo de Excepciones:**
+
+- La clase maneja varias excepciones relacionadas con la carga de keystore, la configuración de SSL, la lectura de URL, etc.
+
 ## Construido con
 
 - [Maven](https://maven.apache.org/): Herramienta de administración de dependencias para proyectos Java.
@@ -90,5 +109,3 @@ Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE.md](LICEN
 ## Agradecimientos
 
 - Escuela Colombiana de Ingeniería
-
-
